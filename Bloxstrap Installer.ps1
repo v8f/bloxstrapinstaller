@@ -1,6 +1,6 @@
 #############################################################################
 $main = "https://api.github.com/repos/pizzaboxer/bloxstrap/releases/latest"
-$release = Invoke-RestMethod -Uri $apiUrl
+$release = Invoke-RestMethod -Uri $main
 $download = $release.assets[0].browser_download_url
 $desktop = [Environment]::GetFolderPath("Desktop")
 $tools = Join-Path -Path $desktop -ChildPath "Tools"
@@ -16,4 +16,4 @@ if (-not (Test-Path -Path $bloxsttrap -PathType Container)) {
 #############################################################################
 Invoke-WebRequest -Uri $download -OutFile $exepath
 Start-Process -FilePath $exepath
-#############################################################################
+############################################################################# 
